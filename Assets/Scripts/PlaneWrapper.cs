@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// Script to interface plane control with game controller script
 public class PlaneWrapper : MonoBehaviour {
@@ -100,6 +101,7 @@ public class PlaneWrapper : MonoBehaviour {
     ///Instrument panel
 	[HideInInspector]
 	public PanelScript panel;
+
 
 	// Use this for initialization
 	void Start () {
@@ -358,6 +360,9 @@ public class PlaneWrapper : MonoBehaviour {
 			explosion.Detonate ();
 			destroyed = true;
 			destroyedTime = Time.time;
+            SceneManager.LoadScene(1);
+            PlayerPrefs.SetString("GOTitle", "Mission Failed");
+            PlayerPrefs.SetString("GOText", "Your aircraft was destroyed");
 		}
 	}
 

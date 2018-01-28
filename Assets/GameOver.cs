@@ -11,6 +11,8 @@ public class GameOver : MonoBehaviour {
 	public Text title;
     ///Screen content
 	public Text body;
+    ///White at start
+    public Image white;
 
 	void Start(){
         //Get the text from the player prefs
@@ -21,6 +23,13 @@ public class GameOver : MonoBehaviour {
 		if (body.text == "")
 			body.text = "body";
 	}
+
+    void Update() {
+        white.color = new Color(1, 1, 1, white.color.a - 0.005f);  
+        if(white.color.a < 0) {
+            white.gameObject.SetActive(false);
+        }
+    }
 
     ///Changes to the menu scene
 	public void Menu(){
