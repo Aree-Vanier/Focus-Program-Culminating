@@ -46,9 +46,15 @@ public class Explosion : MonoBehaviour {
 			print ("Plane");
 			other.GetComponent<Part> ().Detach ();
 			return;
-		}
-		//If its not incinvible and it's not a plane part, disable it
-		if (other.tag != "Invincible")
+        }
+        //If its a building, destroy it
+        if (other.GetComponent<Building>() != null) {
+            print("Building");
+            other.GetComponent<Building>().Destroy();
+            return;
+        }
+        //If its not incinvible and it's not a plane part, disable it
+        if (other.tag != "Invincible")
 			other.gameObject.SetActive (false);
 	}
 }
