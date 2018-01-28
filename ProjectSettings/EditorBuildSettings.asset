@@ -11,3 +11,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Game Over.unity
     guid: 28628cc0e8bc3134798950a4f9ce3a1f
+  - enabled: 1
+    path: Assets/Test Scenes/Greg Test Scene.unity
+    guid: d415302db4133794e9ae5607ffd0d4a4
+  - enabled: 1
+    path: Assets/Levels/Tutorial.unity
+    guid: 30f5ed0a2204c4e44bc436075e976b2d
+  - enabled: 1
+    path: Assets/Levels/Lv1.unity
+    guid: ac03584cd004834418ad597e3428f9f5
+  - enabled: 1
+    path: Assets/Levels/Lv2.unity
+    guid: 65f0e02cb3462e64c9dcda784e04c424
