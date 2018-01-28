@@ -35,8 +35,12 @@ public class GameControl : MonoBehaviour {
         }
         //Update objectives
         objectives = temp.ToArray();
-        completion = objectives.Length / startObjectiveAmount;
+        if(startObjectiveAmount != 0)
+            completion = objectives.Length / startObjectiveAmount;
+    }
 
+    void FixedUpdate() {
+        ControlPlane();    
     }
 
     ///Calls planeWrapper functions to control the plane
@@ -65,5 +69,4 @@ public class GameControl : MonoBehaviour {
 		plane.Roll(InputManager.getAxis(InputManager.Axis.ROLL));
 		plane.Yaw(InputManager.getAxis(InputManager.Axis.YAW));
 	}
-    }
 }
