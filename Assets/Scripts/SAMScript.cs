@@ -12,7 +12,7 @@ public class SAMScript : MonoBehaviour {
     ///Missiles
     public List<HomingMissile> missiles;
     ///Calculated range based on sphere
-    float range;
+    public float range;
     ///Cooldown in seconds between missiles
     public float cooldown;
     ///Time of last missile fired
@@ -21,7 +21,7 @@ public class SAMScript : MonoBehaviour {
     void Start() {
         rangeSphere = GetComponent<SphereCollider>();
         //Get the range from the sphere
-        range = rangeSphere.radius;
+        range = rangeSphere.radius*1.5f;
         //Make sure the collider is disabled (No longner useful to us)
         rangeSphere.enabled = false;
     }
@@ -32,6 +32,7 @@ public class SAMScript : MonoBehaviour {
             foreach (Part p in targets) {
                 //If an attached target is in range
                 if (p.attached) {
+					print(Vector3.Distance(transform.position, p.gameObject.transform.position));
                     if (Vector3.Distance(transform.position, p.gameObject.transform.position) < range) {
                         //Set the target
                         missiles[0].target = p.gameObject.transform;

@@ -38,8 +38,6 @@ public class InputManager : MonoBehaviour {
 	}
 
 	public static float getAxis(Axis axis){
-        print((int)axis + "\t" + axis.ToString());
-        print(axes[3]);
 		float result = axes [(int)axis].Get ();
 		return result;
 	}
