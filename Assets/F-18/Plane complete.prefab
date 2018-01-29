@@ -3937,7 +3937,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4200472773167224}
-  - component: {fileID: 114747561142057074}
   m_Layer: 0
   m_Name: Plane complete
   m_TagString: Untagged
@@ -9232,7 +9231,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1488848031651028}
   m_LocalRotation: {x: -0.70710695, y: 0.00006902217, z: 0.000068828456, w: 0.70710665}
-  m_LocalPosition: {x: 3238.2, y: 47.5, z: 3649.109}
+  m_LocalPosition: {x: 2158.9, y: 8.468445, z: 2476.55}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 4493350727043100}
@@ -27357,6 +27356,7 @@ MonoBehaviour:
   startTime: 0
   target: {fileID: 0}
   turnSpeed: 0.1
+  minRange: 0
 --- !u!114 &114015861473097560
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -28387,19 +28387,6 @@ MonoBehaviour:
   maxHealth: 500
   health: 500
   type: 0
---- !u!114 &114747561142057074
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1488848031651028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18a3b91254b59f94c985d984e03e6126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  planeModel: {fileID: 1654456969629884}
-  planeWrapper: {fileID: 114962129762840296}
 --- !u!114 &114758899208435072
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -28599,6 +28586,7 @@ MonoBehaviour:
   startTime: 0
   target: {fileID: 0}
   turnSpeed: 0.1
+  minRange: 0
 --- !u!114 &114916773726618948
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -42016,7 +42004,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 1929045523
+  randomSeed: 159757445
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -71080,7 +71068,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 1988156168
+  randomSeed: 1332788485
   InitialModule:
     serializedVersion: 3
     enabled: 1

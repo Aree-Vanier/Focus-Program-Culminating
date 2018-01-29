@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 ///Singleton Game Controler runs on levels
 public class GameControl : MonoBehaviour {
@@ -7,11 +8,11 @@ public class GameControl : MonoBehaviour {
 
     public static GameControl instance;
 
-    public float target;
+    public double target;
     public Building[] objectives;
-    int startObjectiveAmount;
+    public double startObjectiveAmount;
     public PlaneWrapper plane;
-    public float completion;
+    public double completion;
 
     void Start() {
         //Singleton Pattern
@@ -36,8 +37,20 @@ public class GameControl : MonoBehaviour {
         //Update objectives
         objectives = temp.ToArray();
         if(startObjectiveAmount != 0)
-            completion = objectives.Length / startObjectiveAmount;
+			completion = Mathf.Abs((float) (1 - objectives.Length / startObjectiveAmount));
+
+		if (completion > target) {
+			PlayerPrefs.SetString("GOTitle", "Mission Success");
+			PlayerPrefs.SetString("GOText", "You destroyed the enemy base");
+			Invoke ("Win", 5);
+		}
     }
+
+	/// Called to change scene after winning, used so that there can be some delay between winning and game over
+	void Win(){
+		//Change scene
+		SceneManager.LoadScene (1);
+	}
 
     void FixedUpdate() {
         ControlPlane();    

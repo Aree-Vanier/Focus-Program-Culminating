@@ -67,7 +67,14 @@ class InputAxis{
 	public float Get(){
 		double result = 0;
 		result = Input.GetAxisRaw (name);
-		result += offset;
+		if (name == "Throttle" && Input.GetJoystickNames ().Length == 0) {
+			result *= 2;
+			if (result < 0) {
+				result = 0;
+			}
+		} else {
+			result += offset;
+		}
 		if (result < deadzone && result > -deadzone) {
 			result = 0;	
 		}

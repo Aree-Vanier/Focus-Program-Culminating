@@ -21,8 +21,6 @@ public class PlaneWrapper : MonoBehaviour {
 	public GameObject rightTail;
 	public Part leftRudderPaddle;
 	public Part rightRudderPaddle;
-	public Part leftTailPart;
-	public Part rightTailPart;
 	//Ailerons
 	public Part leftAileron;
 	public Part rightAileron;
@@ -113,8 +111,6 @@ public class PlaneWrapper : MonoBehaviour {
 		rightElevator.type = PanelScript.Parts.ELEVATOR_RIGHT;
 		leftElevator.type = PanelScript.Parts.ELEVATOR_LEFT;
 		fuselage.type = PanelScript.Parts.FUSELAGE;
-		rightTailPart.type = PanelScript.Parts.TAIL;
-		leftTailPart.type = PanelScript.Parts.TAIL;
 	}
 
 	void FixedUpdate(){
@@ -360,9 +356,10 @@ public class PlaneWrapper : MonoBehaviour {
 			explosion.Detonate ();
 			destroyed = true;
 			destroyedTime = Time.time;
-            SceneManager.LoadScene(1);
+			//Change scene
             PlayerPrefs.SetString("GOTitle", "Mission Failed");
-            PlayerPrefs.SetString("GOText", "Your aircraft was destroyed");
+			PlayerPrefs.SetString("GOText", "Your aircraft was destroyed");
+			SceneManager.LoadScene(1);
 		}
 	}
 

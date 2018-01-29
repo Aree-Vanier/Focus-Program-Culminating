@@ -34,11 +34,13 @@ public class Building : MonoBehaviour {
         //If there is an explosion, detonate it
         Explosion e = GetComponentInChildren<Explosion>();
         if (e != null) {
+			print ("BOOM");
             e.Detonate();
         }
         //Diable the collider so that the building falls through the ground
         GetComponent<Collider>().enabled = false;
+		gameObject.AddComponent<Rigidbody> ();
         //Destroy the gameobject in 5 seconds
-        Destroy(this, 5);
+		Destroy(this.transform.parent.gameObject, 5);
     }
 }
