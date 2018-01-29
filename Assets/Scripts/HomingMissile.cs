@@ -18,6 +18,10 @@ public class HomingMissile : PayloadScript{
 	public Transform target;
 	/// Speed at which the missile turns
 	public float turnSpeed;
+    /// Range under which missile stops locking
+    public float minRange;
+    /// Locked flag, missile aims at target when true
+    bool locked;
 
 	void Start () {
 		collider = GetComponent<CapsuleCollider> ();
@@ -38,16 +42,27 @@ public class HomingMissile : PayloadScript{
 		else if (fired) {
 			//If there is still fuel
 			if (Time.time-startTime < maxFuel) {
-				//If the missile has been in flight for at least 1/2 a second
-				if (Time.time-startTime > 0.5) {
-					//Add force and rotate twords target
-					body.AddForce (transform.forward * accel);
+                body.AddForce(transform.forward * accel);
+                if (locked) {
+					//Rotate twords target
 					transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation (target.position - transform.position), turnSpeed);
 				}
 			}
 
-			//If the fuel is expended, destroy the missile
-			if (Time.time-startTime > maxFuel) {
+
+            //If the missile has been in flight for at least 1/2 a second start locking
+            //If the missile has been in flight for over 2 seconds, then allow unlocking
+            if (Time.time - startTime > 0.5 && Time.time - startTime < 2) {
+                locked = true;
+            }
+
+            //If the target is within minimum range, unlock
+            if(Vector3.Distance(transform.position, target.position) < minRange) {
+                locked = false;
+            }
+
+            //If the fuel is expended, destroy the missile
+            if (Time.time-startTime > maxFuel) {
 				explosion.Detonate ();
 				destroyed = true;
 				startTime = 0;
@@ -74,9 +89,8 @@ public class HomingMissile : PayloadScript{
 		body.AddForce (-transform.forward * dropForce);
 		//Start engine particles
 		if(engine != null) engine.GetComponent<ParticleSystem> ().Play ();
-		print (plane.speed);
 		// Match plane speed
-		body.AddForce (transform.right * (maxSpeed/2+plane.speed*2));
+        if(plane!=null) body.AddForce (transform.right * (maxSpeed/2+plane.speed*2));
 		fired = true;
 		//Set collision detection mode
 		body.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
