@@ -52,7 +52,14 @@ public class Explosion : MonoBehaviour {
             print("Building");
             other.GetComponent<Building>().Destroy();
             return;
-        }
+		}
+		//If its an explosion, detonate it
+		if (other.GetComponentInChildren<Explosion>() != null) {
+			print("Building");
+			other.GetComponent<Explosion>().Invoke("Detonate", 1.5f);
+			return;
+		}
+
         //If its not incinvible and it's not a plane part, disable it
         if (other.tag != "Invincible")
 		    other.gameObject.SetActive (false);

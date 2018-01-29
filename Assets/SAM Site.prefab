@@ -785,6 +785,7 @@ GameObject:
   - component: {fileID: 23621390263551590}
   - component: {fileID: 114022552692682526}
   - component: {fileID: 135076890864051208}
+  - component: {fileID: 114576131005527026}
   m_Layer: 0
   m_Name: SAM Site
   m_TagString: Untagged
@@ -2275,8 +2276,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1524297338698190}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6675.78, y: 2.07, z: 7956.996}
+  m_LocalRotation: {x: -0, y: -0.9970013, z: -0, w: 0.07738486}
+  m_LocalPosition: {x: 5387.3813, y: 7.716175, z: 9136.42}
   m_LocalScale: {x: 2.5128107, y: 1.9037046, z: 1.9509696}
   m_Children:
   - {fileID: 4029317033399368}
@@ -2285,7 +2286,7 @@ Transform:
   - {fileID: 4472714885995362}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -171.123, z: 0}
 --- !u!4 &4472714885995362
 Transform:
   m_ObjectHideFlags: 1
@@ -5993,6 +5994,19 @@ MonoBehaviour:
   target: {fileID: 0}
   turnSpeed: 0.5
   minRange: 15
+--- !u!114 &114576131005527026
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1524297338698190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6669c406ab145af4e9b1abc9f76296f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyed: 0
+  health: 1000
 --- !u!114 &114691574973299310
 MonoBehaviour:
   m_ObjectHideFlags: 1
