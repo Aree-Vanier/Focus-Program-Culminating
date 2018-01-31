@@ -67,14 +67,18 @@ public class GameControl : MonoBehaviour {
             plane.ToggleCanopy();
         }
         //Deprecated because they are useless
-  //      //Toggle Tail Hook
-  //      if (Input.GetKeyUp(KeyCode.H)) {
-  //          plane.ToggleHook();
-  //      }
-  //      //Eject
-		//if (InputManager.getButton(InputManager.Button.EJECT)) {
-		//	plane.Eject();
-		//}
+        //      //Toggle Tail Hook
+        //      if (Input.GetKeyUp(KeyCode.H)) {
+        //          plane.ToggleHook();
+        //      }
+        //      //Eject
+        //if (InputManager.getButton(InputManager.Button.EJECT)) {
+        //	plane.Eject();
+        //}
+
+        if (InputManager.getButtonUp(InputManager.Button.CHANGE_CAMERA)) {
+            plane.ChangeCam();
+        }
 
         //Plane physics functions
         plane.Propel(InputManager.getAxis(InputManager.Axis.THROTTLE));

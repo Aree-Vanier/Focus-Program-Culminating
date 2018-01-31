@@ -100,6 +100,12 @@ public class PlaneWrapper : MonoBehaviour {
 	[HideInInspector]
 	public PanelScript panel;
 
+    ///The cameras on the plane
+    public Camera[] cameras;
+
+    ///Index of the active camera
+    int activeCamera;
+
 
 	// Use this for initialization
 	void Start () {
@@ -111,9 +117,26 @@ public class PlaneWrapper : MonoBehaviour {
 		rightElevator.type = PanelScript.Parts.ELEVATOR_RIGHT;
 		leftElevator.type = PanelScript.Parts.ELEVATOR_LEFT;
 		fuselage.type = PanelScript.Parts.FUSELAGE;
+        //Get the currently enabled camrea
+        for (int i = 0; i < cameras.Length; i++) {
+            if (cameras[i].enabled) activeCamera = i;
+        }
 	}
 
+    ///Cycles to the next camera
+    public void ChangeCam() {
+        //Disable current camera
+        cameras[activeCamera].enabled = false;
+        activeCamera++;
+        //Loop around to first camera
+        if (activeCamera == cameras.Length) activeCamera = 0;
+        //Enable new camera
+        cameras[activeCamera].enabled = true;
+
+    }
+
 	void FixedUpdate(){
+        print(activeCamera);
         //Get vertical speed
 		vSpeed = body.velocity.y;
         //Create raycast for altitude

@@ -438,7 +438,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Controls:\n\tW/S - Pitch\n\tA/D - Roll\n\tQ/E - Yaw\n\tSHIFT - Accelerate\n\tG
-    - Gear\n\tC - Canopy\n\tF1 - Eject\n\tWeapons:\n\t\tALT - Arm weapons\n\t\t[/]
+    - Gear\n\tC - Canopy\n\tV - Change Camera\n\tWeapons:\n\t\tALT - Arm weapons\n\t\t[/]
     - Select weapon\n\t\tSPACE - Fire ordanace\n\t\tC - Fire guns\n"
 --- !u!222 &375784738
 CanvasRenderer:
