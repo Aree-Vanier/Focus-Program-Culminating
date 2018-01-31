@@ -580,11 +580,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0563e0a35c6b23e4592f45b5ad738ebe, type: 3}
   m_IsPrefabParent: 0
---- !u!20 &760076936 stripped
-Camera:
-  m_PrefabParentObject: {fileID: 20680990642012750, guid: b7a0c3f7af9125b42a974182f9c9462c,
-    type: 2}
-  m_PrefabInternal: {fileID: 1328156577}
 --- !u!1 &840053919 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 0563e0a35c6b23e4592f45b5ad738ebe, type: 3}
@@ -616,11 +611,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyed: 0
   health: 1000
---- !u!20 &840819517 stripped
-Camera:
-  m_PrefabParentObject: {fileID: 20972363293568510, guid: b7a0c3f7af9125b42a974182f9c9462c,
-    type: 2}
-  m_PrefabInternal: {fileID: 1328156577}
 --- !u!1001 &889853630
 Prefab:
   m_ObjectHideFlags: 0
@@ -1011,11 +1001,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114962129762840296, guid: b7a0c3f7af9125b42a974182f9c9462c,
-        type: 2}
-      propertyPath: cameras.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 4200472773167224, guid: b7a0c3f7af9125b42a974182f9c9462c, type: 2}
       propertyPath: m_LocalPosition.x
       value: 9268.5
@@ -1048,29 +1033,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 4200472773167224, guid: b7a0c3f7af9125b42a974182f9c9462c, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 4200472773167224, guid: b7a0c3f7af9125b42a974182f9c9462c, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -90.00001
-      objectReference: {fileID: 0}
-    - target: {fileID: 20972363293568510, guid: b7a0c3f7af9125b42a974182f9c9462c,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114962129762840296, guid: b7a0c3f7af9125b42a974182f9c9462c,
-        type: 2}
-      propertyPath: cameras.Array.data[0]
-      value: 
-      objectReference: {fileID: 840819517}
-    - target: {fileID: 114962129762840296, guid: b7a0c3f7af9125b42a974182f9c9462c,
-        type: 2}
-      propertyPath: cameras.Array.data[1]
-      value: 
-      objectReference: {fileID: 760076936}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b7a0c3f7af9125b42a974182f9c9462c, type: 2}
   m_IsPrefabParent: 0
@@ -1270,7 +1232,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 1744282013
+  randomSeed: -1999730571
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -4518,6 +4480,91 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52fe51cd968cf324499f26835de5acc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1575732549 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1654456969629884, guid: b7a0c3f7af9125b42a974182f9c9462c,
+    type: 2}
+  m_PrefabInternal: {fileID: 1328156577}
+--- !u!82 &1575732550
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1575732549}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 6c9731d3d7bfab24890c1f502e8a4404, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1 &1590765394 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 0563e0a35c6b23e4592f45b5ad738ebe, type: 3}
@@ -4936,7 +4983,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 161516624
+  randomSeed: -1437448523
   InitialModule:
     serializedVersion: 3
     enabled: 1
