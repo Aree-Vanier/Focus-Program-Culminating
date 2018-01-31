@@ -13,6 +13,8 @@ public class Explosion : MonoBehaviour {
     bool detonated = false;
     /// Counter for disabling
     int counter = 0;
+    ///Explosion sound
+    AudioClip sound;
 
     void Start () {
 	    //Set collider size
@@ -22,22 +24,25 @@ public class Explosion : MonoBehaviour {
 	    particles = GetComponent<ParticleSystem> ();
 	    ParticleSystem.MainModule explosionMain = particles.main;
 	    explosionMain.startSize = new ParticleSystem.MinMaxCurve (diameter / 2, diameter);
+        //Import explsion sound
+        sound = Resources.Load("Audio/Bomb") as AudioClip;
+        print(sound);
     }
 
-    void FixedUpdate(){
-	    if (detonated)
-		    counter++;
-	    //Disable collider after 50 frames (~1 second)
-	    if (counter == 50) {
-            collider.enabled = false;
-	    }
-    }
 
     /// Start detonation
-    public void Detonate(){
-	    particles.Play ();
-	    collider.enabled = true;
-	    detonated = true;
+    public void Detonate() {
+        if (!detonated) { 
+            particles.Play();
+            collider.enabled = true;
+            detonated = true;
+            //Add the explosion sound
+            gameObject.AddComponent<AudioSource>();
+            GetComponent<AudioSource>().clip = sound;
+            //Play the sound
+            GetComponent<AudioSource>().Play();
+            Destroy(this, 5);
+        }
     }
 
     void OnTriggerEnter(Collider other){
