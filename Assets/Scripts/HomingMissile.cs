@@ -19,7 +19,7 @@ public class HomingMissile : PayloadScript{
 	/// Speed at which the missile turns
 	public float turnSpeed;
     /// Range under which missile stops locking
-    public float minRange;
+    public float minRange = 100;
     /// Locked flag, missile aims at target when true
     bool locked;
 
@@ -51,8 +51,8 @@ public class HomingMissile : PayloadScript{
 
 
             //If the missile has been in flight for at least 1/2 a second start locking
-            //If the missile has been in flight for over 2 seconds, then allow unlocking
-            if (Time.time - startTime > 0.5 && Time.time - startTime < 2) {
+            //If the missile has been in flight for over 1 seconds, then allow unlocking
+            if (Time.time - startTime > 0.5 && Time.time - startTime < 1) {
                 locked = true;
             }
 
