@@ -22,8 +22,8 @@ public class PanelScript : MonoBehaviour {
 	public Image[] nacelles;
 	public Image[] fuselage;
 	//Texts
-	public Text ammoText;
-	public Text weaponText;
+	public Text[] ammoText;
+	public Text[] weaponText;
 
 	/// Set the health of a part on the damage indicator
 	/// Part: The part on the damage indicator
@@ -88,16 +88,26 @@ public class PanelScript : MonoBehaviour {
 	/// Weapon type: The type of weapon
 	/// Armed: Weapon system armed status
 	public void SetWeaponData(int ammo,PayloadType weaponType, bool armed){
-		//If the weapons are armed, display data
-		if (armed) {
-			ammoText.text = ammo + "";
-			weaponText.text = weaponType.ToString ();
-		} 
-		//Otherwise, set the text to DISARMED
-		else {
-			ammoText.text = "";
-			weaponText.text = "DISARMED";
-		}
-	}
+        foreach (Text t in ammoText) {
+            //If the weapons are armed, display data
+            if (armed) {
+                t.text = ammo + "";
+            }
+            //Otherwise, set the text to DISARMED
+            else {
+                t.text = "";
+            }
+        }
+        foreach (Text t in weaponText) {
+            //If the weapons are armed, display data
+            if (armed) {
+                t.text = weaponType.ToString();
+            }
+            //Otherwise, set the text to DISARMED
+            else {
+                t.text = "DISARMED";
+            }
+        }
+    }
 }
                                                                                        
