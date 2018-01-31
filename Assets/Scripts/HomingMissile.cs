@@ -83,24 +83,28 @@ public class HomingMissile : PayloadScript{
 
 	/// Fire the missile
 	public override void Fire(){
-		gameObject.AddComponent<Rigidbody> ();
-		body = gameObject.GetComponent<Rigidbody> ();
-		//Seperate from plane
-		body.AddForce (-transform.forward * dropForce);
-		//Start engine particles
-		if(engine != null) engine.GetComponent<ParticleSystem> ().Play ();
-		// Match plane speed
-        if(plane!=null) body.AddForce (transform.right * (maxSpeed/2+plane.speed*2));
-		fired = true;
-		//Set collision detection mode
-		body.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
-		//Set drag
-		body.angularDrag = 500;
-		body.drag = 2.5f;
-		//Set timer
-		startTime = Time.time;
-        //Reduce ammo
-        ammo--;
+        if (!fired) {
+            gameObject.AddComponent<Rigidbody>();
+            body = gameObject.GetComponent<Rigidbody>();
+            //Seperate from plane
+            body.AddForce(-transform.forward * dropForce);
+            //Start engine particles
+            if (engine != null) engine.GetComponent<ParticleSystem>().Play();
+            // Match plane speed
+            if (plane != null) body.AddForce(transform.right * (maxSpeed / 2 + plane.speed * 2));
+            fired = true;
+            //Set collision detection mode
+            body.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
+            //Set drag
+            body.angularDrag = 500;
+            body.drag = 2.5f;
+            //Set timer
+            startTime = Time.time;
+            //Reduce ammo
+            ammo--;
+            //Play sound
+            GetComponent<AudioSource>().Play();
+        }
 	}
 
 	void OnCollisionEnter(Collision other){

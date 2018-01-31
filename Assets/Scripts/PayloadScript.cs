@@ -86,19 +86,25 @@ public class PayloadScript : MonoBehaviour {
 
     /// Fire the payload
 	public virtual void Fire(){
-		gameObject.AddComponent<Rigidbody> ();
-		body = gameObject.GetComponent<Rigidbody> ();
-        //Seperate from plane
-        body.AddForce (-transform.forward * dropForce);
-        //Start engine particles
-        if (engine != null) engine.GetComponent<ParticleSystem> ().Play ();
-        // Match plane speed
-        body.AddForce (transform.right * (maxSpeed/2+plane.speed*2));
-		fired = true;
-        //Set collision detection mode
-        body.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
-        //Reduce ammo
-		ammo--;
+        if (!fired) {
+            gameObject.AddComponent<Rigidbody>();
+            body = gameObject.GetComponent<Rigidbody>();
+            //Seperate from plane
+            body.AddForce(-transform.forward * dropForce);
+            //Start engine particles
+            if (engine != null) engine.GetComponent<ParticleSystem>().Play();
+            // Match plane speed
+            body.AddForce(transform.right * (maxSpeed / 2 + plane.speed * 2));
+            fired = true;
+            //Set collision detection mode
+            body.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
+            //Reduce ammo
+            ammo--;
+            //Play sound if available
+            if (GetComponent<AudioSource>() != null) {
+                GetComponent<AudioSource>().Play();
+            }
+        }
 	}
 
 	void OnCollisionEnter(Collision other){
